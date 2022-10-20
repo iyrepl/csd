@@ -23,14 +23,6 @@ if [ ! -f "verysimple" ];then
     chmod +x verysimple
 fi
 
-##panindex
-if [ ! -f "panindex" ];then
-  curl -L https://github.com/libsgh/PanIndex/releases/latest/download/PanIndex-linux-amd64.tar.gz -o panindex.tar.gz
-tar -zxvf panindex.tar.gz
-mv PanIndex-linux-amd64 panindex
-rm -f panindex.tar.gz & rm -f LICENSE
-fi
-chmod +x panindex
 
 # configs
 
@@ -38,7 +30,7 @@ if [ $uuid ];then
     cat > server.toml <<EOF
 [[listen]]
 protocol = "vless"
-uuid = "9831667d-e2fc-4022-a7ab-5fb9e0f1ee71"
+uuid = "$uuid"
 host = "0.0.0.0"
 port = 23333
 insecure = true
