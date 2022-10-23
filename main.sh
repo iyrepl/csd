@@ -1,4 +1,4 @@
-#！请先添加$uuid和$path环境变量后运行
+#！请先添加$uuid环境变量后运行
 #download
 ##diffuse
 if [ ! -f "/home/runner/${REPL_SLUG}/build/index.html" ];then
@@ -38,7 +38,7 @@ fallback = ":80"
 # cert = "cert.pem"
 # key = "cert.key"
 advancedLayer = "ws"
-path = "$path"
+path = "/$uuid"
 fullcone = true
 # early = true
 
@@ -62,7 +62,7 @@ header {
 }
 
 @websocket_verysimple {
-        path $path
+        path /$uuid
         header Connection *Upgrade*
         header Upgrade websocket
     }
